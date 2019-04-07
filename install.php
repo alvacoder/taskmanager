@@ -12,7 +12,8 @@ if(isset($_POST['submit'])) {
         $query = "CREATE Database IF NOT EXISTS $dbname";
         $conn->query($query);
 
-        $config = fopen('includes/config.php', 'a');
+        //store database credentials into config file.
+        $config = fopen('includes/Config.php', 'a');
         fwrite($config, '<?php');
         fwrite($config, "\n".'define("DSN", "mysql:host='.$dbhost.';database='.$dbname.'");');
         fwrite($config, "\n".'define("USERNAME", "'.$dbuser.'");');
@@ -53,7 +54,7 @@ if(isset($_POST['submit'])) {
 
     } catch(PDOException $e) {
         $error = $e->getMessage();
-        echo 'Error occured while installing application.'.$error;
+        echo 'Error occured while installing application.';
     }
     
 };
@@ -69,15 +70,15 @@ if(isset($_POST['submit'])) {
 <body>
     <form action="install.php" name="install" method="post">
         <label for="host">
-            <input type="text" name="hostname" id="" placeholder="Database host">
+            Database Host: <input type="text" name="hostname" id="" placeholder="Database host">
         </label><br/>
         <label for="username">
-            <input type="text" name="username" id="" placeholder="Database user">
+            Database Username: <input type="text" name="username" id="" placeholder="Database user">
         </label><br/>
         <label for="password">
-            <input type="text" name="password" id="" placeholder="Database password">
+            Database Password: <input type="text" name="password" id="" placeholder="Database password">
         </label><br/>
-        <label for="username">
+        <label for="submit">
             <input type="submit" name = "submit" value="Install Application">
         </label>
     </form>

@@ -4,11 +4,11 @@ if(isset($_POST['submit'])) {
     $dbhost = $_POST['hostname'];
     $dbuser = $_POST['username'];
     $dbpass = $_POST['password'];
+    $dbname = $_POST['dbname'];
 
     //set up database
     try{
         $conn = new PDO("mysql:host=$dbhost", $dbuser, $dbpass);
-        $dbname = 'taskmanager';
         $query = "CREATE Database IF NOT EXISTS $dbname";
         $conn->query($query);
 
@@ -76,7 +76,10 @@ if(isset($_POST['submit'])) {
             Database Username: <input type="text" name="username" id="" placeholder="Database user">
         </label><br/>
         <label for="password">
-            Database Password: <input type="text" name="password" id="" placeholder="Database password">
+            Database Password: <input type="password" name="password" id="" placeholder="Database password">
+        </label><br/>
+        <label for="dbname">
+            Database Password: <input type="text" name="dbname" id="" placeholder="Give your new DB a name">
         </label><br/>
         <label for="submit">
             <input type="submit" name = "submit" value="Install Application">

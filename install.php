@@ -79,7 +79,7 @@ if(isset($_POST['submit'])) {
             Database Password: <input type="password" name="password" id="" placeholder="Database password">
         </label><br/>
         <label for="dbname">
-            Database Password: <input type="text" name="dbname" id="" placeholder="Give your new DB a name">
+            Database Name: <input type="text" name="dbname" id="" placeholder="Give your new DB a name">
         </label><br/>
         <label for="submit">
             <input type="submit" name = "submit" value="Install Application">

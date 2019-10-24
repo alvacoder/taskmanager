@@ -29,6 +29,7 @@ class UserClass
             $stmt->execute(array(':username'=>$username, ':email'=>$email, ':password'=>$password));
             echo 'Super User Created';
             $xconn = null;
+            unlink('../superuser.php');
         } catch(PDOException $e) {
             $error = $e->getMessage();
             exit('An error occured');
